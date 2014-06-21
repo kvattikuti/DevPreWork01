@@ -17,6 +17,14 @@ def factorize(input)
 	end
 end
 
-inp = ARGV.first.to_i
-primeFactors = factorize(inp)
-printf("Largest prime factor for %d is %d\n", inp, primeFactors.last)
+begin
+	inp = ARGV.first.to_i
+	if n <= 0
+		raise "Enter a non-zero positive number"
+	end
+	primeFactors = factorize(inp)
+	printf("Largest prime factor for %d is %d\n", inp, primeFactors.last)
+rescue StandardError
+	printf("Unexpected exception occured finding largest prime factor! ")
+	printf("Usage: ruby problem03.rb <number>\n")
+end
